@@ -4,16 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class WebRequestManager {
 
-    private InetAddress address;
     private String RemoteServer;
     private String LocalServer;
     private int RemotePort;
@@ -41,7 +37,11 @@ public class WebRequestManager {
             Socket socket = new Socket(RemoteServer,RemotePort);
             PrintStream out = new PrintStream( socket.getOutputStream() );
             BufferedReader in = new BufferedReader(new InputStreamReader( socket.getInputStream()));
-            out.print("GET /index.html HTTP/1.0\r\n\r\n");
+            out.println("GET /index.html HTTP/1.0\r\n\r");
+            out.println("Accept-Language: en-US,en;q=0.5");
+            out.println("Accept-Encoding: gzip, deflate");
+            out.println("User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:83.0) Gecko/20100101 Firefox/83.0");
+
             out.flush();
             String lineReader;
             while ((lineReader = in.readLine()) != null) {

@@ -30,7 +30,6 @@ public class TCPServer implements Runnable {
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
                 if (".".equals(inputLine)) {
-                    out.println("good bye");
                     break;
                 }
                 out.println(inputLine);
