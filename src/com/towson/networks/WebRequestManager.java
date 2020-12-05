@@ -10,10 +10,10 @@ import java.util.Date;
 
 public class WebRequestManager {
 
-    private String RemoteServer;
-    private String LocalServer;
-    private int RemotePort;
-    private int LocalPort;
+    private final String RemoteServer;
+    private final String LocalServer;
+    private final int RemotePort;
+    private final int LocalPort;
     private String RemoteServerResponse;
 
     public WebRequestManager(String remoteServer,int remotePort,String localServer,int localPort)
