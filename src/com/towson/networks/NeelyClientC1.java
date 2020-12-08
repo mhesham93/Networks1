@@ -5,17 +5,17 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class Client {
+public class NeelyClientC1 {
     private int Port;
     private String Server;
     private String ClientName;
-    public Client(String clientName,String server,int port)
+    public NeelyClientC1(String clientName,String server,int port)
     {
         Port = port;
         Server = server;
         ClientName = clientName;
     }
-    public boolean SendMessage(String message){
+    protected boolean SendMessage(String message){
         try{
             DatagramSocket ds = new DatagramSocket();
             String updatedmsg = ClientName + ": "+ message;
